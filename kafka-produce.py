@@ -28,7 +28,7 @@ if __name__ == "__main__":
       start_time = time.time()
       for product in products:
         timestamp, open_price, high_price, low_price, close_price, volume = generate_ohlcv()
-        producer.send('live', key=product.encode('utf-8'), value=f'{timestamp},{open_price},{high_price},{low_price},{close_price},{volume}'.encode('utf-8'))
+        producer.send('events', key=product.encode('utf-8'), value=f'{timestamp},{open_price},{high_price},{low_price},{close_price},{volume}'.encode('utf-8'))
       print(f'produced {len(products)} products with random ohlcv data in {round(time.time()- start_time, 3)}s')
       time.sleep(0.1)
 

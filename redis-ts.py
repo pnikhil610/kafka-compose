@@ -10,7 +10,7 @@ from kafka import KafkaConsumer
 
 from redis_timeseries_manager import RedisTimeseriesManager
 
-consumer = KafkaConsumer('live', bootstrap_servers="localhost:9092", auto_offset_reset='earliest')
+consumer = KafkaConsumer('events', bootstrap_servers="localhost:9092", auto_offset_reset='earliest')
 r = redis.Redis(host="localhost")
 settings = { 'host': 'localhost',
     'port': 6379,
